@@ -4,7 +4,7 @@ RUN apt-get update --yes && apt-get dist-upgrade --yes \
     && apt-get install --yes --no-install-recommends curl gnupg ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-COPY llvm.list /etc/apt/sources.list.d/llvm.list
+COPY src/llvm.list /etc/apt/sources.list.d/llvm.list
 RUN curl --fail --show-error --silent --location https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 
 RUN apt-get update --yes && apt-get dist-upgrade --yes \
